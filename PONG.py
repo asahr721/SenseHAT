@@ -14,14 +14,16 @@ draw_bat()
 
 def move_up(event):
     global bat_y
-    if event.action == 'pressed'and bat_y > 1:
+    if event.action  == 'pressed' :
         bat_y -= 1
+move_up()
 sense.stick.direction_up = move_up
 draw_bat
 
 def move_down (event):
     global bat_y
-    if event.action == 'pressed' and bat_y < 6:
+    if event.action  == 'pressed'  and bat_y < 6:
         bat_y += 1
 sense.stick.direction_down = move_down
-draw_bat
+
+
