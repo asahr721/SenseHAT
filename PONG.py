@@ -7,22 +7,23 @@ white = (255, 255, 255)
 
 bat_y = 4
 ball_position = [3,3]
-ball_volocity = [1,1]
+ball_velocity = [1,1]
 
-while True:
-    def draw_bat():
-        sense.set_pixel(0, bat_y, white)
-        sense.set_pixel(0, bat_y + 1, white)
-        sense.set_pixel(0, bat_y - 1, white) 
 
-def move_up(event):
+def draw_bat():
+    sense.set_pixel(0, bat_y, white)
+    sense.set_pixel(0, bat_y + 1, white)
+    sense.set_pixel(0, bat_y - 1, white) 
+
+def move_up():
     global bat_y
-    if event.action  == 'pressed' and bat_y >1:
+    if event.action  == 'pressed' and bat_y > 1:
         bat_y -= 1
-        
-move_up
-
-sense.stick.direction_up = move_up
+    
+while True:
+    sense.clear(0, 0, 0)
+    draw_bat()
+    sense.stick.direction_up = move_up()
 
 
 
